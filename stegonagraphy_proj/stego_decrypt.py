@@ -16,21 +16,21 @@ def decrypt_image(image_path, correct_passcode):
     decrypted_message = ""
 
     while True:
-        char = chr(img[n, m, 0])  # Read from Red channel
-        if decrypted_message.endswith("EOF"):  # Stop at EOF marker
-            decrypted_message = decrypted_message[:-3]  # Remove EOF
+        char = chr(img[n, m, 0])  
+        if decrypted_message.endswith("EOF"):  
+            decrypted_message = decrypted_message[:-3]  
             break
         decrypted_message += char
         m += 1
-        if m >= img.shape[1]:  # Move to next row if end of column
+        if m >= img.shape[1]:  
             m = 0
             n += 1
-        if n >= img.shape[0]:  # Stop if reached end of image
+        if n >= img.shape[0]:  
             break
 
     print("Decrypted message:", decrypted_message)
 
 if __name__ == "__main__":
-    img_path = "encryptedImage.png"  # Must match saved encrypted image
+    img_path = "encryptedImage.png"  
     correct_pass = input("Enter the original passcode: ")
     decrypt_image(img_path, correct_pass)
