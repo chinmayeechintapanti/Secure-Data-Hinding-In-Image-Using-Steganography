@@ -13,7 +13,7 @@ def encrypt_image(image_path, secret_message, passcode):
     for char in secret_message:
         img[n, m, 0] = ord(char)  
         m += 1
-        if m >= img.shape[1]:  n
+        if m >= img.shape[1]:  
             m = 0
             n += 1
         if n >= img.shape[0]:  
